@@ -1744,8 +1744,6 @@
             })
         }])
     }.call(this),
-    
-    
     function() {
         angular.module("app.directives", []).directive("imgHolder", [function() {
             return {
@@ -1881,8 +1879,6 @@
             }
         }])
     }.call(this),
-    
-    
     function() {
         "use strict";
         angular.module("app.localization", []).factory("localize", ["$http", "$rootScope", "$window", function($http, $rootScope, $window) {
@@ -1995,9 +1991,6 @@
             }
         }])
     }.call(this),
-    
-    
-    
     function() {
         "use strict";
         angular.module("app.controllers", []).controller("AppCtrl", ["$scope", "$location", function($scope, $location) {
@@ -2084,6 +2077,50 @@
 		
 		/************************************************************PRASHANT DASHBOARD REQUESTS CONTROLLERS (04 FEB 2015 )***********************************************************************/
 
+		
+		.controller('validateCtrl',["$scope", function($scope){
+			
+			
+			
+			$scope.submit=function(){
+				console.log("inside form");
+				// var Weekly_CheckBoxes = {;$scope.myForm.sunday,};
+				var dataObject = {
+				Sch_date : $scope.myForm.Sch_date,
+				slot_StartTime1: $scope.myForm.mytime1,
+				slot_EndTime1: $scope.myForm.mytime2,
+				slot_AvgPatientTime1: $scope.myForm.selected1,
+				slot_Location1: $scope.myForm.selected2,
+				
+				slot_StartTime2: $scope.myForm.mytime3,
+				slot_EndTime2: $scope.myForm.mytime4,
+				slot_AvgPatientTime2: $scope.myForm.selected3,
+				slot_Location2: $scope.myForm.selected4,
+				
+				slot_StartTime3: $scope.myForm.mytime5,
+				slot_EndTime3: $scope.myForm.mytime6,
+				slot_AvgPatientTime3: $scope.myForm.selected5,
+				slot_Location3: $scope.myForm.selected6,
+				
+				
+				RepeatDaily_StartDate : $scope.myForm.dt1,
+				RepeatDaily_EndDate : $scope.myForm.dt2,
+				
+				RepeatWeekly_StartDate : $scope.myForm.dt3,
+				RepeatWeekly_Days : [$scope.myForm.sunday,$scope.myForm.monday,$scope.myForm.tuesday,$scope.myForm.wednesday,$scope.myForm.thursday,$scope.myForm.friday,$scope.myForm.satureday],
+				RepeatWeekly_EndDate : $scope.myForm.dt4,
+				
+				Repeatmonthly_StartDate : $scope.myForm.dt5,
+				Repeatmonthly_Day : [$scope.myForm.m1,$scope.myForm.m2,$scope.myForm.m3,$scope.myForm.m4,$scope.myForm.m5,$scope.myForm.m6,$scope.myForm.m7, $scope.myForm.m8,$scope.myForm.m9,$scope.myForm.m10,$scope.myForm.m11,$scope.myForm.m12,$scope.myForm.m13,$scope.myForm.m14, $scope.myForm.m15,$scope.myForm.m16,$scope.myForm.m17,$scope.myForm.m18,$scope.myForm.m19,$scope.myForm.m20,$scope.myForm.m21,  $scope.myForm.m22,$scope.myForm.m23,$scope.myForm.m24,$scope.myForm.m25,$scope.myForm.m26,$scope.myForm.m27,$scope.myForm.m28, $scope.myForm.m29,$scope.myForm.m30,$scope.myForm.m31],
+				Repeatmonthly_EndDate : $scope.myForm.dt6
+				
+				};
+				 if(!$scope.myForm.m1) alert("not se	");
+				console.log(dataObject);
+			}
+			
+		}])
+		
 		
 		
     }.call(this);

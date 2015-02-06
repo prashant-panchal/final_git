@@ -11,23 +11,22 @@
     }
   </style>
   
-  <div class="row"  data-ng-controller="CollapseDemoCtrl">
-    <div class="col-md-7 col-md-offset-2"  >
-      <form  action="#">
+  <div class="row" >
+	<form ng-controller="validateCtrl" name="myForm" novalidate name="myForm" novalidate><!-- ng-controller="validateCtrl" -->
+    <div class="col-md-7 col-md-offset-2"  data-ng-controller="CollapseDemoCtrl" >
+      
         
         
         <div class="panel">
           <div class="panel-body"  >
             <div class="row"   >
               <div class="col-md-12">
+				
+				
                 <!-- profile panel -->
                 <div class="panel panel-profile">
                   <div class="panel-heading text-center bg-default">
-                    <!-- 
-<img alt="" src="images/profileguy.png" class="img-circle img80_80">
-<br>
-<br>
--->
+                   
                                           <p>
                                             Select Date
                                           </p>
@@ -35,10 +34,10 @@
                                             
                                             <input type="text" 
                                             class="form-control"
-                                            datepicker-popup="{{format}}"
-                                            ng-model="dt"
-                                            is-open="opened"
-                                            min="minDate"
+                                            datepicker-popup="{{format}}"  
+											ng-model="myForm.Sch_date"
+											is-open="opened"
+											min="minDate"
                                             max="'2015-06-22'"
                                             datepicker-options="dateOptions" 
                                             date-disabled="disabled(date, mode)"
@@ -48,8 +47,11 @@
                                               <i class="fa fa-calendar">
                                               </i>
                                             </span>
-                                            
+											
                                           </div>
+											<span style="color:red" ng-show="myForm.Sch_date.$dirty && myForm.Sch_date.$invalid">
+											  <span ng-show="myForm.Sch_date.$error.required">Date is required.</span>
+										    </span>
                                           
                                           <br>
                                           <br>
@@ -62,13 +64,15 @@
                                                 From
                                               </p>
                                               <div data-ng-controller="TimepickerDemoCtrl" >
-                                                <div ng-model="mytime1" ng-change="changed()" style="display:inline-block;">
+                                                <div ng-model="myForm.mytime1" ng-change="changed()" name="time1" style="display:inline-block;">
                                                   <timepicker class="ui-timepicker" required >
                                                   </timepicker>
                                                 </div>
                                                 
                                               </div>
-                                              
+                                            <span style="color:red" ng-show="myForm.time1.$dirty && myForm.time1.$invalid">
+											  <span ng-show="myForm.time1.$error.required">Time is required.</span>
+										    </span>
                                             </div>
                                             
                                             <div class="col-md-6">
@@ -76,13 +80,15 @@
                                                 To
                                               </p>
                                               <div  data-ng-controller="TimepickerDemoCtrl" >
-                                                <div ng-model="mytime2" ng-change="changed()" style="display:inline-block;">
+                                                <div ng-model="myForm.mytime2" ng-change="changed()" name="time2" style="display:inline-block;">
                                                   <timepicker class="ui-timepicker" required>
                                                   </timepicker>
                                                 </div>
                                                 
                                               </div>
-                                              
+											<span style="color:red" ng-show="myForm.time2.$dirty && myForm.time2.$invalid">
+											  <span ng-show="myForm.time2.$error.required">Time is required.</span>
+										    </span>
                                             </div>
                                           </div>
                                           <br>
@@ -93,7 +99,7 @@
                                                 Average Time per Patients
                                               </p>
                                               <span class="ui-select" >
-                                                <select required ng-model="selected1">
+                                                <select required ng-model="myForm.selected1">
                                                   <option>
                                                     10 Min
                                                   </option>
@@ -118,7 +124,7 @@
                                                 Location
                                               </p>
                                               <span class="ui-select" >
-                                                <select required ng-model="selected2">
+                                                <select required ng-model="myForm.selected2">
                                                   <option>
                                                     Aundh
                                                   </option>
@@ -147,36 +153,11 @@
                 
               <div class="panel-body" >
                 <div class="row"  >
-                  <form >
+                  
                     <div class="col-md-12">
                       <!-- profile panel -->
                       <div class="panel panel-profile">
                         <div class="panel-heading text-center bg-default">
-                         
-                                          <p>
-                                            Select Date
-                                          </p>
-                                          <div class="input-group ui-datepicker" data-ng-controller="DatepickerDemoCtrl" >
-                                            
-                                            <input type="text" 
-                                            class="form-control"
-                                            datepicker-popup="{{format}}"
-                                            ng-model="dt1"
-                                            is-open="opened"
-                                            min="minDate"
-                                            max="'2015-06-22'"
-                                            datepicker-options="dateOptions" 
-                                            date-disabled="disabled(date, mode)"
-                                            ng-required="true" 
-                                            close-text="Close">
-                                            <span class="input-group-addon">
-                                              <i class="fa fa-calendar">
-                                              </i>
-                                            </span>
-                                            
-                                          </div>
-                                          
-                                          <br>
                                           <br>
                                           <div class="row">
                                             <p>
@@ -187,13 +168,13 @@
                                                 From
                                               </p>
                                               <div  data-ng-controller="TimepickerDemoCtrl">
-                                                <div ng-model="mytime1" ng-change="changed()" style="display:inline-block;">
-                                                  <timepicker class="ui-timepicker" required >
+                                                <div ng-model="myForm.mytime3" ng-change="changed()" name="time3" style="display:inline-block;">
+                                                  <timepicker class="ui-timepicker"  >
                                                   </timepicker>
                                                 </div>
                                                 
                                               </div>
-                                              
+                                             
                                             </div>
                                             
                                             <div class="col-md-6">
@@ -201,7 +182,7 @@
                                                 To
                                               </p>
                                               <div data-ng-controller="TimepickerDemoCtrl" >
-                                                <div ng-model="mytime2" ng-change="changed()" style="display:inline-block;">
+                                                <div ng-model="myForm.mytime4" ng-change="changed()" name="time4" style="display:inline-block;">
                                                   <timepicker class="ui-timepicker" required>
                                                   </timepicker>
                                                 </div>
@@ -218,7 +199,7 @@
                                                 Average Time per Patients
                                               </p>
                                               <span class="ui-select" >
-                                                <select required ng-model="selected1">
+                                                <select required ng-model="myForm.selected3">
                                                   <option>
                                                     10 Min
                                                   </option>
@@ -243,7 +224,7 @@
                                                 Location
                                               </p>
                                               <span class="ui-select" >
-                                                <select required ng-model="selected2">
+                                                <select required ng-model="myForm.selected4">
                                                   <option>
                                                     Aundh
                                                   </option>
@@ -272,14 +253,10 @@
                
                <div class="panel-body"  >
                  <div class="row"   >
-                   <form >
-                     <div class="col-md-12">
+                    <div class="col-md-12">
                        <!-- profile panel -->
                        <div class="panel panel-profile">
                          <div class="panel-heading text-center bg-default">
-
-                                      
-                                          <br>
                                           <br>
                                           <div class="row">
                                             <p>
@@ -290,7 +267,7 @@
                                                 From
                                               </p>
                                               <div data-ng-controller="TimepickerDemoCtrl">
-                                                <div ng-model="mytime1" ng-change="changed()" style="display:inline-block;">
+                                                <div ng-model="myForm.mytime5" ng-change="changed()" name="time5" style="display:inline-block;">
                                                   <timepicker class="ui-timepicker" required >
                                                   </timepicker>
                                                 </div>
@@ -304,7 +281,7 @@
                                                 To
                                               </p>
                                               <div  data-ng-controller="TimepickerDemoCtrl">
-                                                <div ng-model="mytime2" ng-change="changed()" style="display:inline-block;">
+                                                <div ng-model="myForm.mytime6" ng-change="changed()" name="time6" style="display:inline-block;">
                                                   <timepicker class="ui-timepicker" required>
                                                   </timepicker>
                                                 </div>
@@ -321,7 +298,7 @@
                                                 Average Time per Patients
                                               </p>
                                               <span class="ui-select" >
-                                                <select required ng-model="selected1">
+                                                <select required ng-model="myForm.selected5">
                                                   <option>
                                                     10 Min
                                                   </option>
@@ -346,7 +323,7 @@
                                                 Location
                                               </p>
                                               <span class="ui-select" >
-                                                <select required ng-model="selected2">
+                                                <select required ng-model="myForm.selected6">
                                                   <option>
                                                     Aundh
                                                   </option>
@@ -359,12 +336,7 @@
                                           </div>
                                       </div>
                                   </div>
-                                 <!--  <div style="text-align:center">
-                                    <a class="btn btn-primary btn-circle" ng-click="slot3 = !slot3"  >
-                                      <i tooltip-placement="top" tooltip="Add Another Slot 3" tooltip-append-to-body="true" class="fa fa-plus fa-2x">
-                                      </i>
-                                    </a>
-                                  </div> -->
+                                 
   </div>
                           </div>
                       </div>
@@ -384,7 +356,7 @@
                        <br>
                        <div class="ui-tab-container" collapse="!sch">
                          <tabset justified="true" class="ui-tab">
-                           <tab heading="Daily">
+                           <tab heading="Daily" >
                              <div class="row">
                                <div class="col-md-6">
                                  <p>
@@ -394,7 +366,7 @@
                                    <input type="text" 
                                    class="form-control"
                                    datepicker-popup="{{format}}"
-                                   ng-model="dt"
+                                   ng-model="myForm.dt1"
                                    is-open="opened"
                                    min="minDate"
                                    max="'2015-06-22'"
@@ -416,7 +388,7 @@
                                    <input type="text" 
                                    class="form-control"
                                    datepicker-popup="{{format}}"
-                                   ng-model="dt"
+                                   ng-model="myForm.dt2"
                                    is-open="opened"
                                    min="minDate"
                                    max="'2015-06-22'"
@@ -444,43 +416,43 @@
                                </p>
                                <dd>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option1" >
+                                   <input ng-model="myForm.sunday" ng-true-value="1"  ng-init="0" type="checkbox"  >
                                    <span>
                                      Sunday
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option2" >
+                                   <input type="checkbox" ng-model="myForm.monday" ng-init="0" ng-true-value="1"  >
                                    <span>
                                      Monday
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option3">
+                                   <input type="checkbox" ng-model="myForm.tuesday" ng-init="0"  ng-true-value="1"  >
                                    <span>
                                      Tuesday
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option4">
+                                   <input type="checkbox" ng-model="myForm.wednesday" ng-init="0" ng-true-value="1" >
                                    <span>
                                      Wednesday
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option5">
+                                   <input type="checkbox" ng-model="myForm.thursday" ng-init="0" ng-true-value="1"  >
                                    <span>
                                      Thursday
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option6">
+                                    <input type="checkbox" ng-model="myForm.friday" ng-init="0" ng-true-value="1"  >
                                    <span>
                                      Friday
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option7">
+                                  <input type="checkbox" ng-model="myForm.satureday" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      Saturday
                                    </span>
@@ -497,7 +469,7 @@
                                    <input type="text" 
                                    class="form-control"
                                    datepicker-popup="{{format}}"
-                                   ng-model="dt"
+                                   ng-model="myForm.dt3"
                                    is-open="opened"
                                    min="minDate"
                                    max="'2015-06-22'"
@@ -519,7 +491,7 @@
                                    <input type="text" 
                                    class="form-control"
                                    datepicker-popup="{{format}}"
-                                   ng-model="dt"
+                                   ng-model="myForm.dt4"
                                    is-open="opened"
                                    min="minDate"
                                    max="'2015-06-22'"
@@ -544,193 +516,200 @@
                                <div class="col-md-12">
 								<dd>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option1" >
+                                  <input type="checkbox" ng-model="myForm.m1" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      01
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option2" >
+                                  <input type="checkbox" ng-model="myForm.m2"  ng-init="0" ng-true-value="1"   >
                                    <span>
                                      02
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option3">
+                                  <input type="checkbox" ng-model="myForm.m3" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      03
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option4">
+                                  <input type="checkbox" ng-model="myForm.m4" ng-init="0" ng-true-value="1"   >
                                    <span>
                                     04
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option5">
+                                   <input type="checkbox" ng-model="myForm.m5" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      05
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option6">
+                                   <input type="checkbox" ng-model="myForm.m6" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      06
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option7">
+                                    <input type="checkbox" ng-model="myForm.m7" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      07
                                    </span>
                                  </label><br>
 								 <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option8" >
+                                   <input type="checkbox" ng-model="myForm.m8" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      08
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option9" >
+                                    <input type="checkbox" ng-model="myForm.m9"ng-init="0" ng-true-value="1"   >
                                    <span>
                                      09
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option10">
+                                   <input type="checkbox" ng-model="myForm.m10" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      10
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option11">
+                                  <input type="checkbox" ng-model="myForm.m11" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      11
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option12">
+                                   <input type="checkbox" ng-model="myForm.m12" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      12
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option13">
+                                   <input type="checkbox" ng-model="myForm.m13" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      13
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option14">
+                                  <input type="checkbox" ng-model="myForm.m14" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      14
                                    </span>
                                  </label><br>
 								 <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option15" >
+                                   <input type="checkbox" ng-model="myForm.m15" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      15
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option16" >
+                                   <input type="checkbox" ng-model="myForm.m16" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      16
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option17">
+                                   <input type="checkbox" ng-model="myForm.m17" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      17
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option18">
+                                    <input type="checkbox" ng-model="myForm.m18" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      18
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option19">
+                                   <input type="checkbox" ng-model="myForm.m19" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      19
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option20">
+                                    <input type="checkbox" ng-model="myForm.m20" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      20
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option21">
+                                   <input type="checkbox" ng-model="myForm.m21" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      21
                                    </span>
                                  </label><br>
 								 <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option22" >
+                                    <input type="checkbox" ng-model="myForm.m22" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      22
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option23" >
+                                   <input type="checkbox" ng-model="myForm.m23" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      23
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option24">
+                                    <input type="checkbox" ng-model="myForm.m24" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      24
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option25">
+                                    <input type="checkbox" ng-model="myForm.m25" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      25
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option26">
+                                   <input type="checkbox" ng-model="myForm.m26"  ng-init="0" ng-true-value="1"   >
                                    <span>
                                      26
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option27">
+                                    <input type="checkbox" ng-model="myForm.m27" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      27
                                    </span>
                                  </label>
                                  <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option28">
+                                   <input type="checkbox" ng-model="myForm.m28" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      28
                                    </span>
                                  </label><br>
 								 <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option29">
+                                    <input type="checkbox" ng-model="myForm.m29" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      29
                                    </span>
                                  </label>
 								 <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option30">
+                                   <input type="checkbox" ng-model="myForm.m30" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      30
                                    </span>
                                  </label>
 								 <label class="ui-checkbox">
-                                   <input name="checkbox1" type="checkbox" value="option31">
+                                   <input type="checkbox" ng-model="myForm.m31" ng-init="0" ng-true-value="1"   >
                                    <span>
                                      31
                                    </span>
                                  </label>
                                </dd>
 							   
+							   
+							   
+							   
+							   
+							   
+							   
+
 							   
 							   </div>
                                <div class="col-md-6">
@@ -741,7 +720,7 @@
                                    <input type="text" 
                                    class="form-control"
                                    datepicker-popup="{{format}}"
-                                   ng-model="dt"
+                                   ng-model="myForm.dt5"
                                    is-open="opened"
                                    min="minDate"
                                    max="'2015-06-22'"
@@ -763,7 +742,7 @@
                                    <input type="text" 
                                    class="form-control"
                                    datepicker-popup="{{format}}"
-                                   ng-model="dt"
+                                   ng-model="myForm.dt6"
                                    is-open="opened"
                                    min="minDate"
                                    max="'2015-06-22'"
@@ -802,7 +781,7 @@
                                       <i tooltip-placement="top" tooltip="Preview Schedule" tooltip-append-to-body="true"  class="fa fa-eye fa-2x">
                                       </i>
                                 </button>
-								<button class="btn btn-success btn-circle" type="submit">
+								<button class="btn btn-success btn-circle" type="submit" ng-click="submit()">
                                       <i tooltip-placement="top" tooltip="Submit" tooltip-append-to-body="true"  class="fa fa-check fa-2x">
                                       </i>
                                 </button>
