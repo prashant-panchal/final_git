@@ -1,0 +1,95 @@
+<div class="page page-form">
+    <div class="row">
+        <div class="col-md-12" data-ng-controller="formConstraintsCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="fa fa-user"></span>&nbsp; Create Role</strong></div>
+                <div class="panel-body">
+                    <form name="form_constraints" class="form-validation" novalidate data-ng-submit="submitForm()">
+                        <div class="form-group">
+                            <label for="">Role Title : </label>
+						<!-- 	<span class="ui-select">
+								<select>
+									<option><i class="fa fa-dashboard"></i>Administrator</option>
+									<option>Doctor</option>
+									<option>Patient</option>
+								</select>
+							</span> -->
+                             <input  type="text"
+                                    class="form-control"
+                                    required
+                                    data-ng-minlength=3
+                                    data-ng-maxlength=45
+                                    data-ng-model="form.length_rage"
+                            > 
+                            <span></span>
+                            <br>
+							
+							<label for="">Role Description</label>
+                            <textarea class="form-control"
+                                      rows="4"
+                                      required
+                                      data-ng-model="form.required_textarea">
+							</textarea>
+                             <br>	
+							
+							<div class="row">
+								<!-- left division -->
+								<div class="col-md-6">
+									<div class="panel panel-default">
+									 <div class="panel-heading"><strong><span class="fa fa-columns"></span>&nbsp; Side Bar Menu</strong></div>
+										<div class="panel-body">
+									<input  type="checkbox"
+											id="required_checkbox1"
+										   
+											data-ng-model="form.required_checkbox1"> 
+									<label for="required_checkbox1">Update weekly schedule</label> 
+									
+									<input  type="checkbox"
+											id="required_checkbox2"
+											
+											data-ng-model="form.required_checkbox2"> 
+									<label for="required_checkbox2">Update weekly schedule</label>
+										</div>
+									</div>
+								</div>
+								 <!-- right division -->
+								<div class="col-md-6">
+									<div class="panel panel-default">
+									 <div class="panel-heading"><strong><span class="fa fa-external-link"></span>&nbsp; Division Widgets</strong></div>
+										<div class="panel-body">
+									<input  type="checkbox"
+											id="required_checkbox3"
+										   
+											data-ng-model="form.required_checkbox3"> 
+									<label for="required_checkbox3">Update weekly schedule</label> 
+									
+									<input  type="checkbox"
+											id="required_checkbox4"
+											
+											data-ng-model="form.required_checkbox4"> 
+									<label for="required_checkbox4">Update weekly schedule</label>
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+                        </div>
+						
+                        <button type="submit"
+                                class="btn btn-success"
+                                data-ng-disabled="!canSubmit()"
+                                >Sumbit
+						</button>
+                       
+                        <div class="callout callout-info">
+                            <p>Sumbit button will be active only when all fields are valid.</p>
+                            <p>Revert button will be active only when one or more fields is changed.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

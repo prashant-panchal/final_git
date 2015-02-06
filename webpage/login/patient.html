@@ -1,0 +1,80 @@
+<script type="text/javascript" src="js/fb.js"></script>
+<div class="container" >
+	<div class="row" id="contentHolder" style="margin-top:50px;">
+				<!-- left profile  -->
+				<div class="col-md-8">
+					
+					
+				</div>
+				<!-- Right profile  -->
+				<div class="col-md-4">
+				<!-- <h4 style="text-align:left">Showing <strong>1002</strong> Results found for <strong>Dr. doctor name </strong> </h4><br> -->
+					
+					<div class="[ panel1 panel1-default ] panel1-google-plus">
+						<div class="bookappointment">
+						<h3 style="text-align:center;">User Login</h3>
+						</div>
+						<!-- booking form -->
+						<div class="bo1" ng-controller="formValidation">
+						   <div ng-controller="login">
+							<form name="form" shake-that submitted="submitted">
+								<div class="form-group" ng-class="{'has-error': form.email.$invalid && submitted}">
+								  <label for="email" class="control-label">Username </label>
+								  <input
+									type="text"
+									class="form-control"
+									id="username"
+									name="username"
+									placeholder="Registered Mobile Number"
+									ng-model="credentials.username"
+									ng-model-options="{updateOn: 'blur'}"
+									required>
+								</div>
+								<div class="form-group" ng-class="{'has-error': form.password.$invalid && submitted}">
+								  <label for="password" class="control-label">Password</label>
+								  <input
+									type="password"
+									class="form-control"
+									id="password"
+									name="password"
+									placeholder="Password"
+									ng-model="credentials.password"
+									ng-model-options="{updateOn: 'blur'}"
+									required>
+								</div>
+								<br>
+								<center><button type="submit" class="btn btn-primary btn-sm" ng-click="patientlogin()"><span class="fa fa-paper-plane"></span>&nbsp; Login &nbsp;</button></center>
+							</form>
+							<br>
+							<h5 style="text-align:center"><a href="#/forgotp" class="green" style="font-weight:900"> Forgot Password ? </a><br>
+							Don`t have an account?<a href="#/new_user" class="green" style="font-weight:900"> Sign Up </a></h5>	
+							<hr>
+							<div style="margin:30px;">
+							    <!-- <fb:login-button autologoutlink="true" scope="public_profile,email,publish_actions" onlogin="checkLoginState();"></fb:login-button> -->
+								<!-- <fb:login-button show-faces="true" max-rows="1" 
+								size="large"></fb:login-button> -->
+								<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true">
+								</div>
+								<br><br>
+								<a class="btn btn-block btn-social btn-facebook" >
+									<i class="fa fa-facebook"></i> Sign in with Facebook
+								</a>
+								<br>
+								<a class="btn btn-block btn-social btn-twitter">
+									 <i class="fa fa-twitter"></i> Sign in with Twitter
+								</a>
+								<br>
+								<a class="btn btn-block btn-social btn-google-plus" >
+									<i class="fa fa-google-plus"></i> Sign in with Google+
+								</a>	
+							
+							</div>
+							</div><!-- login controller ends here -->
+						</div>
+					
+
+					
+					</div>
+				</div>
+	</div>
+</div>

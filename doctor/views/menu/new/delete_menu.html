@@ -1,0 +1,109 @@
+<div class="page page-form">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="fa fa-exclamation-triangle"></span>&nbsp; Delete Role</strong></div>
+                <div class="panel-body" >
+                   
+                        <div class="form-group">
+							<div class="row">
+								<!-- left division -->
+								<div class="col-md-8">
+									<!-- Select -->
+								  <div class="form-group">
+									<section class="panel panel-default">
+									
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-md-3">
+													<h4>Select Role :</h4>
+												</div>
+												<div class="col-md-4">
+													<span class="ui-select">
+														<select ng-model="selected">
+															<option> ADMINISTRATOR </option>
+															<option> DOCTOR </option>
+															<option> PATIENT</option>
+														</select>
+													</span>
+												</div>
+												
+											</div>
+										</div>
+												<div class="callout callout-info">
+													<h4>Selected Role :<b> {{selected}} </b></h4>
+												</div>
+									</section>
+									</div>
+									
+									<!-- menu panel -->
+									<div class="panel panel-default">
+									 <div class="panel-heading"><strong><span class="fa fa-columns"></span>&nbsp; Menu Colomn 1</strong></div>
+										<div class="panel-body">
+											<table class="table table-responsive">
+												<tbody>
+													<tr><td class="text-info"><strong>Menu Name</strong></td> <td class="text-info"><strong>Address URL</strong></td><td class="text-info"><strong>Action</strong></td></tr>
+													<tr>
+														<td>Menu 1</td>
+														<td>//Url</td>
+														<td>
+															<span class="glyphicon glyphicon-pencil"  data-ng-click="edit(task)"></span>
+															<span class="glyphicon glyphicon-remove"  data-ng-click="remove(task, $index)" ></span>
+														</td>
+													</tr>
+													<tr>
+														<td>Menu 2</td>
+														<td>//Url</td>
+														<td>
+															<span class="glyphicon glyphicon-pencil"  data-ng-click="edit(task)"></span>
+															<span class="glyphicon glyphicon-remove"  data-ng-click="remove(task, $index)" ></span>
+														</td>
+													</tr>
+													<tr>
+														<td>Menu 3</td>
+														<td>//Url</td>
+														<td>
+															<span class="glyphicon glyphicon-pencil"  data-ng-click="edit(task)"></span>
+															<span class="glyphicon glyphicon-remove"  data-ng-click="remove(task, $index)" ></span>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								
+								
+								
+								
+								 <!-- right division -->
+								<div class="col-md-4">
+									<div class="panel panel-info">
+									 <div class="panel-heading"><strong><span class="fa fa-plus"></span>&nbsp; Add New Manu</strong></div>
+										<div class="panel-body">
+									
+										</div>
+									</div>
+								</div>
+							
+								
+								
+								
+								
+							</div>
+                        </div>
+						
+                        
+                       
+                    
+                </div>
+            </div>
+			
+			
+        </div>
+
+    </div>
+</div>
+
+
+

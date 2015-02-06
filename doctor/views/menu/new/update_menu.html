@@ -1,0 +1,104 @@
+<div class="page page-form">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" data-ng-controller="formConstraintsCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong><span class="fa fa-edit "></span>&nbsp; Update Menu</strong></div>
+                <div class="panel-body">
+                    <form name="form_constraints" class="form-validation" novalidate data-ng-submit="submitForm()">
+                        <div class="form-group">
+                            <label for="">Menu Title </label>
+						<!-- 	<span class="ui-select">
+								<select>
+									<option><i class="fa fa-dashboard"></i>Administrator</option>
+									<option>Doctor</option>
+									<option>Patient</option>
+								</select>
+							</span> -->
+                             <input  type="text"
+                                    class="form-control"
+                                    required
+                                    data-ng-minlength=3
+                                    data-ng-maxlength=45
+                                    data-ng-model="form.length_rage"
+                            > 
+                            <span></span>
+                            <br>
+							<label for="">Menu Display Name  </label>
+							<input  type="text"
+                                    class="form-control"
+                                    required
+                                    data-ng-minlength=3
+                                    data-ng-maxlength=25
+                                    data-ng-model="form.length_rage2"
+                            > 
+                            <span></span>
+                            <br>
+							
+							<label for="">Menu Description</label>
+                            <textarea class="form-control"
+                                      rows="2"
+                                      required
+                                      data-ng-model="form.required_textarea">
+							</textarea>
+                             <br>
+
+							<label for="">Menu URL  </label>
+							<input  type="text"
+                                    class="form-control"
+                                    required
+                                    data-ng-minlength=3
+                                    data-ng-maxlength=25
+                                    data-ng-model="form.length_rage3" placeholder="e.g  Foldername/filename.filetype"
+                            > 
+                            <span></span>
+                            <br>	
+							
+							<div class="row">
+								<!-- left division -->
+								<div class="col-md-12">
+									<div class="panel panel-default">
+									 <div class="panel-heading"><strong><span class="fa fa-eye"></span>&nbsp; Options</strong></div>
+										<div class="panel-body">
+											<input  type="checkbox"
+													id="required_checkbox1" value="1" name="vdoctor"
+												   
+													data-ng-model="form.required_checkbox1"> 
+											<label for="required_checkbox1"> Visibility for Doctors</label> 
+											<br>
+											<input  type="checkbox"
+													id="required_checkbox2" value="1" name="vpatient"
+													
+													data-ng-model="form.required_checkbox2"> 
+											<label for="required_checkbox2"> Visibility for Patients</label>
+											<br>
+											<input  type="checkbox"
+													id="required_checkbox3" value="1" name="vadmin"
+													
+													data-ng-model="form.required_checkbox3"> 
+											<label for="required_checkbox3"> Visibility for Administrator</label>
+										</div>
+									</div>
+								</div>
+								
+								
+							</div>
+                        </div>
+						
+                        <button type="submit"
+                                class="btn btn-success"
+                                data-ng-disabled="!canSubmit()"
+                                >Sumbit
+						</button>
+                       
+                        <div class="callout callout-info">
+                            <p>Sumbit button will be active only when all fields are valid.</p>
+                            <p>Revert button will be active only when one or more fields is changed.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

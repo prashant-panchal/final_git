@@ -1,0 +1,35 @@
+<div class="container" >
+	<div class="row" id="contentHolder" style="margin-top:50px;">
+		<!-- Mobile content  -->
+		<div class="col-md-12" style="background-image:url(images/1.jpg);border-color:white;height:560px;margin:10px;padding:10px;">
+			
+			<div class="col-md-4">
+			<img style="margin-top:20px;" class="img-responsive" ng-src="images/mobiledevice.png"/>
+			</div>
+			<div class="col-md-4"></div>
+			
+			<div class="col-md-3" >
+				<div style="margin-top:90px;padding:5px;">
+				<h4>Mobile Verification Code</h4><br>
+					<form name="form" shake-that submitted="submitted" submit="OTPcheck(OTPcharacters)">
+							<div class="form-group" ng-class="{'has-error': form.number.$invalid && submitted}">
+							  <input
+								type="text"
+								class="form-control"
+								id="otp"
+								name="otp"
+								placeholder="type the characters here"
+								ng-model="OTPcharacters"
+								required>
+							</div>
+						<center><button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane"></span>&nbsp; Confirm &nbsp;</button></center>
+					</form>
+		
+				
+				</div>
+			</div>
+				
+		</div>
+		<!-- Mobile content  -->
+	</div>
+</div>
