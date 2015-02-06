@@ -159,8 +159,11 @@ mainApp.controller('PhoneListCtrl', function ($scope) {
   ];
 });
 
-
-// to toggle
+/*Author:Amit Gore
+ * On every accessable page for'patient',we have included this mainController
+ * So to check whether patient is logged in or not is being handled within this controller  
+ * 
+ * */
 mainApp.controller('mainController', function($scope,$http) {
   
   // set the default states for lions and cranes
