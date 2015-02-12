@@ -1,0 +1,103 @@
+<div class="page page-dashboard" data-ng-controller="DashboardCtrl">
+
+    <div class="row">
+        <div class="col-md-8">
+			
+			<div class="row">
+                <div class="col-sm-5">
+                    <section class="panel panel-box">
+                        <div class="panel-top bg-facebook">
+                            <h4>Upcoming Appointment</h4>
+                        </div>
+                        <div class="list-justified-container">
+                            <ul class="list-justified text-center">
+                                <li>
+                                    <p class="size-h4">{{p_name}}</p>
+                                    <p class="text-muted">Reason : {{p_reason}}</p>
+                                </li>
+                                <li>
+                                    <p class="size-h4">{{p_date}}</p>
+                                    <p class="text-muted">{{p_time}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-7">
+                    <div class="panel panel-default">
+                        <!-- <div class="panel-heading"><span class="glyphicon glyphicon-th"></span> Scrollable Box</div> -->
+                        <div class="panel-body ui-map " data-slim-scroll data-scroll-height="201px">
+                            <table class="table">
+								<thead><tr><th>Name</th><th>Reason</th><th>Date</th></tr></thead>
+								<tbody>
+									<tr ng-repeat="patient in patient_historys">
+										<td><a ng-href="#" style="text-decoration:none;color:#43b97b">{{patient.name}}</a></td><td>{{patient.reason}}</td><td>{{patient.date}}</td>
+									</tr>
+								</tbody>
+							</table>
+                        </div>
+                    </div>
+                </div>
+				
+            </div>
+			
+			
+            <div class="panel panel-profile">
+                <div class="panel-heading text-center bg-info">
+                    <!-- <img alt="" src="images/g1.jpg" class="img-circle img80_80"> -->
+                    <h4>My Performance</h4>
+                                       
+                </div>
+                <div class="list-justified-container">
+                    <ul class="list-justified text-center">
+                        <li>
+                            <p class="size-h3">{{d_enquired}}</p>
+                            <p class="text-muted">Enquired</p>
+                        </li>
+                        <li>
+                            <p class="size-h3">{{d_booked}}</p>
+                            <p class="text-muted">Booked</p>
+                        </li>
+                        <li>
+                            <p class="size-h3">{{d_rejected}}</p>
+                            <p class="text-muted">Rejected</p>
+                        </li>
+						<li>
+                            <p class="size-h3">{{d_cancelled}}</p>
+                            <p class="text-muted">Cancelled</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          
+        </div>
+		<!-- <div class="col-md-5"></div> -->
+        <div class="col-md-4">
+			<section class="panel panel-box info-box" >
+                        <div class="panel-left panel-item1 bg-warning" >
+                            <i class="fa fa-warning text-large stat-icon"></i>
+                        </div>
+                        <div class="panel-right panel-item1 bg-reverse">
+                            <p class="size-h4 no-margin"><a href="#" style="text-decoration:none;">Update Schedule</a></p>
+                            <p class="size-h5 no-margin" style="color: #9F6000;"><span>Out of slots for next month</span></p>
+                        </div>
+            </section>
+			
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel mini-box">
+                        <div class="box-info" ng-controller="patient_request">
+                            <p class="size-h3"> <i class="fa fa-user"></i>&nbsp;	{{requestedP_name}} </p>
+                            <p class="text-muted">{{requestedP_date}} , {{requestedP_time}} <br> <span>Reason :</span>  {{requestedP_reason}}</p>
+							<hr><button class="btn btn-info btn-sm">Approve</button>&nbsp;<button class="btn btn-danger btn-sm" data-ng-click="alert('warning')">Reject</button>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+  

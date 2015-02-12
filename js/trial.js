@@ -153,6 +153,18 @@ mainApp.controller('PageCtrl', function ( $scope, $location, $http, $routeParams
 
 
 
+
+mainApp.controller('PhoneListCtrl', function ($scope) {
+  $scope.phones = [
+    {'name': 'Nexus S',
+     'snippet': 'Fast just got faster with Nexus S.'},
+    {'name': 'Motorola XOOM™ with Wi-Fi',
+     'snippet': 'The Next, Next Generation tablet.'},
+    {'name': 'MOTOROLA XOOM™',
+     'snippet': 'The Next, Next Generation tablet.'}
+  ];
+});
+
 /*Author:Amit Gore
  * On every accessable page for'patient',we have included this mainController
  * So to check whether patient is logged in or not is being handled within this controller  
@@ -460,59 +472,6 @@ mainApp.controller('doctor_search',function($scope,$routeParams,$rootScope,$http
 				$scope.status=status;
 				$rootScope.cards = data;
 				$scope.result= data;
-				
-				var mapOptions = {
-					zoom: 9,
-					center: new google.maps.LatLng(18.5203,73.8567),
-					mapTypeId: google.maps.MapTypeId.ROADMAP,
-					mapTypeControl: false,
-							 mapTypeControlOptions: {
-							 style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
-							 },
-							 navigationControl: true,
-							 navigationControlOptions: {
-							 style: google.maps.NavigationControlStyle.SMALL
-							 }
-				}
-				
-				var bounds = new google.maps.LatLngBounds();
-				
-				$scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-				$scope.markers = [];
-				
-				var infoWindow = new google.maps.InfoWindow();
-				var createMarker = function (info){
-					
-					var marker = new google.maps.Marker({
-						map: $scope.map,
-						position: new google.maps.LatLng(info.lat, info.lng),
-						
-						title: info.city
-					});
-					marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
-					bounds.extend( marker.position);
-					map.fitBounds(bounds.extend);
-					//console.log(bounds);	
-					google.maps.event.addListener(marker, 'click', function(){
-						infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
-						infoWindow.open($scope.map, marker);
-					});
-					
-					$scope.markers.push(marker);
-					
-				}  
-				
-				console.log($rootScope);
-				
-				for (i = 0; i < $rootScope.cards.length; i++)
-				{
-					createMarker($rootScope.cards[i]);
-				}
-						
-						
-				
-				
 			}).
 			error(function(data,status){
 				alert('Failure');
@@ -537,13 +496,10 @@ mainApp.controller('doctor_search',function($scope,$routeParams,$rootScope,$http
 			$rootScope.cards = data;
 			$scope.result= data;
 			//console.log($scope.data);
-			
 			window.location.replace('#/search/docname-'+$scope.keywords);
 			//window.location.replace('#/search');
 			//$location.path('#/search');
 			
-	
-
 			
 			
 		}).
@@ -579,25 +535,9 @@ mainApp.controller('doctor_search',function($scope,$routeParams,$rootScope,$http
 	
 	
 	
+	
 });
 /**************************************************end of controllers related to SEARCH RESULT page*********************************************************/
-/**************************************************end of controllers related to SEARCH FILTER page*********************************************************/
-
-
-
-/**************************************************end of controllers related to SEARCH FILTER page*********************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
  * Book mainAppointment Related controller
@@ -657,11 +597,108 @@ mainApp.controller('book_mainAppointment',function($scope,$routeParams,$rootScop
 	     }//submitForm function ends
 	
 	
+	
+
+
+
+
 
 });
 
 
+
+
 /*------------------------------------------------end of controllers WRITTEN BY AMIT GORE----------------------------------------------------------------*/
+
+
+
+
+//Angular mainApp Module and Controller
+
+mainApp.controller('MapCtrl', function ($scope) {
+	
+	
+	
+    var mapOptions = {
+        zoom: 7,
+        center: new google.maps.LatLng(18.5203,73.8567),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+		mapTypeControl: false,
+				 mapTypeControlOptions: {
+				 style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+				 },
+				 navigationControl: true,
+				 navigationControlOptions: {
+				 style: google.maps.NavigationControlStyle.SMALL
+				 }
+    }
+	
+	var bounds = new google.maps.LatLngBounds();
+	
+    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    $scope.markers = [];
+    
+    var infoWindow = new google.maps.InfoWindow();
+    var createMarker = function (info){
+        
+        var marker = new google.maps.Marker({
+            map: $scope.map,
+            position: new google.maps.LatLng(info.lat, info.long),
+			
+            title: info.city
+        });
+        marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+        bounds.extend( marker.position);
+		//map.fitBounds(bounds);
+		//console.log(bounds);	
+        google.maps.event.addListener(marker, 'click', function(){
+            infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+            infoWindow.open($scope.map, marker);
+        });
+        
+        $scope.markers.push(marker);
+        
+    }  
+    
+    for (i = 0; i < cities.length; i++)
+	{
+        createMarker(cities[i]);
+    }
+
+    // $scope.openInfoWindow = function(e, selectedMarker){
+        // e.preventDefault();
+        // google.maps.event.trigger(selectedMarker, 'click');
+    // }
+
+});
+
+var cities = [
+    {
+        city : 'Pune',
+        desc : 'This is the best city in the world!',
+        lat : 18.5203,
+        long : 73.8567
+    },
+    {
+        city : 'Ahmadnagar',
+        desc : 'This city is aiiiiite!',
+        lat : 19.0800,
+        long : 74.7300
+    },
+	{
+        city : 'Nashik',
+        desc : 'This city is aiiiiite!',
+        lat : 20.0000,
+        long : 73.7800
+    },
+	{
+        city : 'Delhi',
+        desc : 'This city is aiiiiite!',
+        lat : 28.6139,
+        long : 77.2089
+    }
+];
 
 
 
@@ -905,7 +942,7 @@ mainApp.filter('mySort', function() {
             return $scope.isCollapsed = !1}])
 		
 		
-		mainApp.controller('validateCtrl',["$scope", function($scope){
+		mainApp.controller('validateCtrl',["$scope","", function($scope){
 			$scope.count = 0;
 			
 			$scope.submit=function(){
@@ -928,6 +965,7 @@ mainApp.filter('mySort', function() {
 				slot_AvgPatientTime3: $scope.myForm.selected5,
 				slot_Location3: $scope.myForm.selected6,
 				
+				
 				RepeatDaily_StartDate : $scope.myForm.dt1,
 				RepeatDaily_EndDate : $scope.myForm.dt2,
 				
@@ -939,11 +977,17 @@ mainApp.filter('mySort', function() {
 				Repeatmonthly_Day : [$scope.myForm.m1,$scope.myForm.m2,$scope.myForm.m3,$scope.myForm.m4,$scope.myForm.m5,$scope.myForm.m6,$scope.myForm.m7, $scope.myForm.m8,$scope.myForm.m9,$scope.myForm.m10,$scope.myForm.m11,$scope.myForm.m12,$scope.myForm.m13,$scope.myForm.m14, $scope.myForm.m15,$scope.myForm.m16,$scope.myForm.m17,$scope.myForm.m18,$scope.myForm.m19,$scope.myForm.m20,$scope.myForm.m21,  $scope.myForm.m22,$scope.myForm.m23,$scope.myForm.m24,$scope.myForm.m25,$scope.myForm.m26,$scope.myForm.m27,$scope.myForm.m28, $scope.myForm.m29,$scope.myForm.m30,$scope.myForm.m31],
 				Repeatmonthly_EndDate : $scope.myForm.dt6,
 				
+				
+				
 				};
 				console.log(dataObject);
 			}
 			
 		}])
+		
+		
+		
+
 
 //Directive that returns an element which adds buttons on click which show an alert on click
 mainApp.directive("addbuttonsbutton", function(){
@@ -958,7 +1002,7 @@ mainApp.directive("addbuttons", function($compile){
 	return function(scope, element, attrs){
 		element.bind("click", function(){
 			scope.count++;
-			angular.element(document.getElementById('space-for-buttons')).append($compile("<div><div class='panel-body' ><div class='row' ><div class='col-md-12'> <!-- profile panel --> <div class='panel panel-profile'> <div class='panel-heading text-center bg-default'> <br> <div class='row'> <p> Select Time Slot No "+scope.count+"  </p> <div class='col-md-6'> <p> From </p> <div data-ng-controller='TimepickerDemoCtrl'> <div  name='time3' style='display:inline-block;'> <input type='time' class='form-control' ng-model='myForm.mytimefrom"+scope.count+"' ng-required='true' > </div></div> </div> <div class='col-md-6'> <p> To </p> <div data-ng-controller='TimepickerDemoCtrl' > <div  name='time"+scope.count+"' style='display:inline-block;'> <input type='time' class='form-control' ng-model='myForm.mytimeto"+scope.count+"' ng-required='true' > </div> </div> </div> </div> <br> <br> <div class='row'> <div class='col-md-6'> <p> Average Time per Patients </p> <span class='ui-select' > <select required ng-model='myForm.selected"+scope.count+"'> <option> 10 Min </option> <option> 15 Min </option> <option> 20 Min </option> <option> 30 Min </option> <option> 60 Min </option> </select> </span> </div> <div class='col-md-6'> <p> Location </p> <span class='ui-select' > <select required ng-model='myForm.selected"+scope.count+"'> <option> Aundh </option> <option> Koregaon Park </option> </select> </span> </div> </div> </div> </div> ")
+			angular.element(document.getElementById('space-for-buttons')).append($compile("<div><div class='panel-body' ><div class='row' ><div class='col-md-12'> <!-- profile panel --> <div class='panel panel-profile'> <div class='panel-heading text-center bg-default'> <br> <div class='row'> <p> Select Time Slot No "+scope.count+"  </p> <div class='col-md-6'> <p> From </p> <div data-ng-controller='TimepickerDemoCtrl'> <div  name='time3' style='display:inline-block;'> <input type='time' class='form-control' ng-model='myForm.mytime3' ng-required='true' > </div></div> </div> <div class='col-md-6'> <p> To </p> <div data-ng-controller='TimepickerDemoCtrl' > <div  name='time4' style='display:inline-block;'> <input type='time' class='form-control' ng-model='myForm.mytime4' ng-required='true' > </div> </div> </div> </div> <br> <br> <div class='row'> <div class='col-md-6'> <p> Average Time per Patients </p> <span class='ui-select' > <select required ng-model='myForm.selected3'> <option> 10 Min </option> <option> 15 Min </option> <option> 20 Min </option> <option> 30 Min </option> <option> 60 Min </option> </select> </span> </div> <div class='col-md-6'> <p> Location </p> <span class='ui-select' > <select required ng-model='myForm.selected4'> <option> Aundh </option> <option> Koregaon Park </option> </select> </span> </div> </div> </div> </div> ")
 		(scope));
 		});
 	};

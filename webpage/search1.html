@@ -9,6 +9,7 @@
 		  </div>
  -->
 <!-- Page Content -->
+<div ng-controller="mainController">
 
 <div class="container">
 	
@@ -39,77 +40,47 @@
     </div>
     <!-- /.row -->
 
-	
-	
-	
     <!-- Search Context -->
 
     <div class="row" id="contentHolder">
-			
-			
-			
-			
-			
-			
+	
 		<div class="col-md-2" >
 			<div class="[ panel1 panel1-default ] panel1-google-plus" style="padding:2px;margin-bottom:15px" > 
 				<div style="margin-bottom:15px;">	
 					<div class="heading_filter">
-						<h5><b style="color:#f8f8f8;font-weight:600;">Speciality</b></h5>
+						<h5><b style="color:#f8f8f8;font-weight:600;">Filter 1</b></h5>
 					</div>
 					
 					<tr>
-					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'FirstName'; reverse=false">&nbsp;&nbsp;Name</input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'fee'; reverse=false">&nbsp;&nbsp;Fees</input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'area'; reverse=false">&nbsp;&nbsp;Area</input></th>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'name'; reverse=false">&nbsp;&nbsp;Name</input></th><br>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'fees'; reverse=false">&nbsp;&nbsp;Fees</input></th><br>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'location'; reverse=!reverse">&nbsp;&nbsp;Area</input></th>
 					</tr>
 				</div>
-				<div style="margin-bottom:15px;" >	
+				<div style="margin-bottom:15px;">	
 					<div class="heading_filter">
-						<h5><b style="color:#f8f8f8;font-weight:600;">Area</b></h5>
+						<h5><b style="color:#f8f8f8;font-weight:600;">Filter 1</b></h5>
 					</div>
+					
 					<tr>
-					 <th>&nbsp;&nbsp;<input type="checkbox">&nbsp;&nbsp;Aundh</input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox">&nbsp;&nbsp;Baner</input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox" >&nbsp;&nbsp;Alandi</input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox" >&nbsp;&nbsp;Kothrud</input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox" >&nbsp;&nbsp;Shivaji Nagar</input></th>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'name'; reverse=false">&nbsp;&nbsp;Name</input></th><br>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'fees'; reverse=false">&nbsp;&nbsp;Fees</input></th><br>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'location'; reverse=!reverse">&nbsp;&nbsp;Area</input></th>
 					</tr>
 				</div>
 				
 				<div style="margin-bottom:15px;">	
 					<div class="heading_filter">
-						<h5><b style="color:#f8f8f8;font-weight:600;">Gender</b></h5>
+						<h5><b style="color:#f8f8f8;font-weight:600;">Filter 1</b></h5>
 					</div>
 					
 					<tr>
-					  <th>&nbsp;&nbsp;<input type="checkbox">&nbsp;&nbsp;Male</input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox">&nbsp;&nbsp;Female</input></th><br>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'name'; reverse=false">&nbsp;&nbsp;Name</input></th><br>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'fees'; reverse=false">&nbsp;&nbsp;Fees</input></th><br>
+					  <th>&nbsp;&nbsp;<input type="checkbox" ng-click="predicate = 'location'; reverse=!reverse">&nbsp;&nbsp;Area</input></th>
 					</tr>
 				</div>
 				
-				<div style="margin-bottom:15px;">	
-					<div class="heading_filter">
-						<h5><b style="color:#f8f8f8;font-weight:600;">Fees </b></h5>
-					</div>
-					
-					<tr>
-					  <th>&nbsp;&nbsp;<input type="checkbox">&nbsp;&nbsp;0 - 200 <i class="fa fa-inr"></i></input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox">&nbsp;&nbsp;200 - 400 <i class="fa fa-inr"></i></input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox">&nbsp;&nbsp;400 - 600 <i class="fa fa-inr"></i></input></th><br>
-					  <th>&nbsp;&nbsp;<input type="checkbox">&nbsp;&nbsp;600 - Onwards <i class="fa fa-inr"></i></input></th><br>
-					</tr>
-				</div>
-				
-				<div style="margin-bottom:15px;">	
-					<div class="heading_filter">
-						<h5><b style="color:#f8f8f8;font-weight:600;">Fees 2</b></h5>
-					</div>
-					
-					<tr>
-					  <th>&nbsp;&nbsp;<input type="range">&nbsp;&nbsp;</input></th><br>
-					 </tr>
-				</div>
 			</div>
 		</div>
 		
@@ -213,7 +184,9 @@
 						<h5 class="text-right">{{card.fees | currency :"":2}}</h5>
 						<a href="#/primary_info" type="button" class="btn btn-primary btn-xs"  ><span style="color:white" class="fa fa-send"></span> Book Appointment </a></p> -->
 						 <div style="height:320px;width:100%;padding:1px;padding-top:-1px;"> 
-						
+							<div>
+							
+							</div>
 							<div class="table-container"  > <!-- Adding other controller here:Amit -->
 								<div class="sliding-window" >
 								<table class="table table-responsive table-hover">
@@ -221,7 +194,7 @@
 										<img class="img-responsive" src="images/Timestrip.png" />
 									</thead>
 									<tbody >
-										
+									
 										<tr ng-repeat="slot in card.doc_calandar">
 										
 										<!--  <center><span style="font-size:12px;border-radius:10px;padding:7px;margin:2px"> {{slot.formatted_date}}  </span> </center>-->
@@ -315,9 +288,11 @@
 						src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=18.5203,73.8567&amp;spn=56.506174,79.013672&amp;t=m&amp;z=11&amp;output=embed"></iframe>
 			  -->
 			 <!-- <myMap id="map-canvas" style="width:200px;height:300px;padding:10px;"></myMap> -->
-			<div ng-controller="doctor_search">
-				<div id="map" ></div>
-				
+			<div ng-controller="MapCtrl">
+				<div id="map"></div>
+				<div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+					 <!-- <a  ng-click="openInfoWindow($event, marker)">{{marker.title}}</a> -->
+				</div>
 			</div>
 			 
 			 
@@ -331,7 +306,7 @@
 </div>
 <!-- /.container -->
 
-
+</div><!--  end of maincontroller -->
 
 
 

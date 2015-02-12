@@ -1,0 +1,805 @@
+<div class="page page-form" >
+  <style>
+    .btn-circle {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      padding: 13px 0;
+      font-size: 12px;
+      line-height: 1.42;
+      border-radius: 50%;
+    }
+  </style>
+  
+  <div class="row" >
+	<form ng-controller="validateCtrl" name="myForm" novalidate name="myForm" novalidate><!-- ng-controller="validateCtrl" -->
+    <div class="col-md-7 col-md-offset-2"  data-ng-controller="CollapseDemoCtrl" >
+      
+        
+        
+        <div class="panel">
+          <div class="panel-body"  >
+            <div class="row"   >
+              <div class="col-md-12">
+				
+				
+                <!-- profile panel -->
+                <div class="panel panel-profile">
+                  <div class="panel-heading text-center bg-default">
+                   
+                                          <p>
+                                            Select Date
+                                          </p>
+                                          <div class="input-group ui-datepicker" data-ng-controller="DatepickerDemoCtrl">
+                                            
+                                            <input type="text" 
+                                            class="form-control"
+                                            datepicker-popup="{{format}}"  
+											ng-model="myForm.Sch_date"
+											is-open="opened"
+											min="minDate"
+                                            max="'2015-06-22'"
+                                            datepicker-options="dateOptions" 
+                                            date-disabled="disabled(date, mode)"
+                                            ng-required="true" 
+                                            close-text="Close">
+                                            <span class="input-group-addon">
+                                              <i class="fa fa-calendar">
+                                              </i>
+                                            </span>
+											
+                                          </div>
+											<span style="color:red" ng-show="myForm.Sch_date.$dirty && myForm.Sch_date.$invalid">
+											  <span ng-show="myForm.Sch_date.$error.required">Date is required.</span>
+										    </span>
+                                          
+                                          <br>
+                                          <br>
+                                          <div class="row">
+                                            <p>
+                                              Select Time 
+                                            </p>
+                                            <div class="col-md-6">
+                                              <p>
+                                                From
+                                              </p>
+                                              <div data-ng-controller="TimepickerDemoCtrl" >
+                                                <div ng-model="myForm.mytime1" ng-change="changed()" name="time1" style="display:inline-block;">
+                                                  <timepicker class="ui-timepicker" required >
+                                                  </timepicker>
+                                                </div>
+                                                
+                                              </div>
+                                            <span style="color:red" ng-show="myForm.time1.$dirty && myForm.time1.$invalid">
+											  <span ng-show="myForm.time1.$error.required">Time is required.</span>
+										    </span>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                              <p>
+                                                To
+                                              </p>
+                                              <div  data-ng-controller="TimepickerDemoCtrl" >
+                                                <div ng-model="myForm.mytime2" ng-change="changed()" name="time2" style="display:inline-block;">
+                                                  <timepicker class="ui-timepicker" required>
+                                                  </timepicker>
+                                                </div>
+                                                
+                                              </div>
+											<span style="color:red" ng-show="myForm.time2.$dirty && myForm.time2.$invalid">
+											  <span ng-show="myForm.time2.$error.required">Time is required.</span>
+										    </span>
+                                            </div>
+                                          </div>
+                                          <br>
+                                          <br>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <p>
+                                                Average Time per Patients
+                                              </p>
+                                              <span class="ui-select" >
+                                                <select required ng-model="myForm.selected1">
+                                                  <option>
+                                                    10 Min
+                                                  </option>
+                                                  <option>
+                                                    15 Min
+                                                  </option>
+                                                  <option>
+                                                    20 Min
+                                                  </option>
+                                                  <option>
+                                                    30 Min
+                                                  </option>
+                                                  <option>
+                                                    60 Min
+                                                  </option>
+                                                </select>
+                                              </span>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                              <p>
+                                                Location
+                                              </p>
+                                              <span class="ui-select" >
+                                                <select required ng-model="myForm.selected2">
+                                                  <option>
+                                                    Aundh
+                                                  </option>
+                                                  <option>
+                                                    Koregaon Park
+                                                  </option>
+                                                </select>
+                                              </span>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div style="text-align:center">
+                                    <a class="btn btn-primary btn-circle" ng-click="slot1 = !slot1"  >
+                                      <i tooltip-placement="top" tooltip="Add Another Slot 1" tooltip-append-to-body="true" class="fa fa-plus fa-2x">
+                                      </i>
+                                    </a>
+                                  </div>
+                          </div>
+                      </div>
+              </div>
+              </div>
+              
+              
+              <div class="panel " collapse="!slot1">
+                
+              <div class="panel-body" >
+                <div class="row"  >
+                  
+                    <div class="col-md-12">
+                      <!-- profile panel -->
+                      <div class="panel panel-profile">
+                        <div class="panel-heading text-center bg-default">
+                                          <br>
+                                          <div class="row">
+                                            <p>
+                                              Select Time
+                                            </p>
+                                            <div class="col-md-6">
+                                              <p>
+                                                From
+                                              </p>
+                                              <div  data-ng-controller="TimepickerDemoCtrl">
+                                                <div ng-model="myForm.mytime3" ng-change="changed()" name="time3" style="display:inline-block;">
+                                                  <timepicker class="ui-timepicker"  >
+                                                  </timepicker>
+                                                </div>
+                                                
+                                              </div>
+                                             
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                              <p>
+                                                To
+                                              </p>
+                                              <div data-ng-controller="TimepickerDemoCtrl" >
+                                                <div ng-model="myForm.mytime4" ng-change="changed()" name="time4" style="display:inline-block;">
+                                                  <timepicker class="ui-timepicker" required>
+                                                  </timepicker>
+                                                </div>
+                                                
+                                              </div>
+                                              
+                                            </div>
+                                          </div>
+                                          <br>
+                                          <br>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <p>
+                                                Average Time per Patients
+                                              </p>
+                                              <span class="ui-select" >
+                                                <select required ng-model="myForm.selected3">
+                                                  <option>
+                                                    10 Min
+                                                  </option>
+                                                  <option>
+                                                    15 Min
+                                                  </option>
+                                                  <option>
+                                                    20 Min
+                                                  </option>
+                                                  <option>
+                                                    30 Min
+                                                  </option>
+                                                  <option>
+                                                    60 Min
+                                                  </option>
+                                                </select>
+                                              </span>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                              <p>
+                                                Location
+                                              </p>
+                                              <span class="ui-select" >
+                                                <select required ng-model="myForm.selected4">
+                                                  <option>
+                                                    Aundh
+                                                  </option>
+                                                  <option>
+                                                    Koregaon Park
+                                                  </option>
+                                                </select>
+                                              </span>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div style="text-align:center;">
+                                    <a class="btn btn-primary btn-circle" ng-click="slot2 = !slot2"  >
+                                      <i tooltip-placement="top" tooltip="Add Another Slot 2" tooltip-append-to-body="true" class="fa fa-plus fa-2x">
+                                      </i>
+                                    </a>
+                                  </div>
+  </div>
+                          </div>
+                      </div>
+              </div>
+              
+              
+              <div class="panel " collapse="!slot2">
+               
+               <div class="panel-body"  >
+                 <div class="row"   >
+                    <div class="col-md-12">
+                       <!-- profile panel -->
+                       <div class="panel panel-profile">
+                         <div class="panel-heading text-center bg-default">
+                                          <br>
+                                          <div class="row">
+                                            <p>
+                                              Select Time 
+                                            </p>
+                                            <div class="col-md-6">
+                                              <p>
+                                                From
+                                              </p>
+                                              <div data-ng-controller="TimepickerDemoCtrl">
+                                                <div ng-model="myForm.mytime5" ng-change="changed()" name="time5" style="display:inline-block;">
+                                                  <timepicker class="ui-timepicker" required >
+                                                  </timepicker>
+                                                </div>
+                                                
+                                              </div>
+                                              
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                              <p>
+                                                To
+                                              </p>
+                                              <div  data-ng-controller="TimepickerDemoCtrl">
+                                                <div ng-model="myForm.mytime6" ng-change="changed()" name="time6" style="display:inline-block;">
+                                                  <timepicker class="ui-timepicker" required>
+                                                  </timepicker>
+                                                </div>
+                                                
+                                              </div>
+                                              
+                                            </div>
+                                          </div>
+                                          <br>
+                                          <br>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <p>
+                                                Average Time per Patients
+                                              </p>
+                                              <span class="ui-select" >
+                                                <select required ng-model="myForm.selected5">
+                                                  <option>
+                                                    10 Min
+                                                  </option>
+                                                  <option>
+                                                    15 Min
+                                                  </option>
+                                                  <option>
+                                                    20 Min
+                                                  </option>
+                                                  <option>
+                                                    30 Min
+                                                  </option>
+                                                  <option>
+                                                    60 Min
+                                                  </option>
+                                                </select>
+                                              </span>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                              <p>
+                                                Location
+                                              </p>
+                                              <span class="ui-select" >
+                                                <select required ng-model="myForm.selected6">
+                                                  <option>
+                                                    Aundh
+                                                  </option>
+                                                  <option>
+                                                    Koregaon Park
+                                                  </option>
+                                                </select>
+                                              </span>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                 
+  </div>
+                          </div>
+                      </div>
+               </div>
+               
+               
+               <!-- Repeat panel -->
+               <div class="panel">
+                 <div class="panel-body"  >
+                   <div class="col-md-12">
+                     <div class="row">
+                       <div class="divider">
+                       </div>
+                       <h4 ng-click="sch = !sch" style="cursor:pointer;color:#292827;text-align:center">
+                         Repeat my schedule
+                       </h4>
+                       <br>
+                       <div class="ui-tab-container" collapse="!sch">
+                         <tabset justified="true" class="ui-tab">
+                           <tab heading="Daily" >
+                             <div class="row">
+                               <div class="col-md-6">
+                                 <p>
+                                   Select Date From
+                                 </p>
+                                 <div class="input-group ui-datepicker" data-ng-controller="DatepickerDemoCtrl">
+                                   <input type="text" 
+                                   class="form-control"
+                                   datepicker-popup="{{format}}"
+                                   ng-model="myForm.dt1"
+                                   is-open="opened"
+                                   min="minDate"
+                                   max="'2015-06-22'"
+                                   datepicker-options="dateOptions" 
+                                   date-disabled="disabled(date, mode)"
+                                   ng-required="true" 
+                                   close-text="Close">
+                                   <span class="input-group-addon">
+                                     <i class="fa fa-calendar">
+                                     </i>
+                                   </span>
+                                 </div>
+                               </div>
+                               <div class="col-md-6">
+                                 <p>
+                                   Select Date To
+                                 </p>
+                                 <div class="input-group ui-datepicker" data-ng-controller="DatepickerDemoCtrl">
+                                   <input type="text" 
+                                   class="form-control"
+                                   datepicker-popup="{{format}}"
+                                   ng-model="myForm.dt2"
+                                   is-open="opened"
+                                   min="minDate"
+                                   max="'2015-06-22'"
+                                   datepicker-options="dateOptions" 
+                                   date-disabled="disabled(date, mode)"
+                                   ng-required="true" 
+                                   close-text="Close">
+                                   <span class="input-group-addon">
+                                     <i class="fa fa-calendar">
+                                     </i>
+                                   </span>
+                                 </div>
+                               </div>
+                               
+                             </div>
+                             
+                           </tab>
+                           
+                           
+                           <tab heading="Weekly">
+                             
+                             <div>
+                               <p>
+                                 Select Day
+                               </p>
+                               <dd>
+                                 <label class="ui-checkbox">
+                                   <input ng-model="myForm.sunday" ng-true-value="1"  ng-init="0" type="checkbox"  >
+                                   <span>
+                                     Sunday
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.monday" ng-init="0" ng-true-value="1"  >
+                                   <span>
+                                     Monday
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.tuesday" ng-init="0"  ng-true-value="1"  >
+                                   <span>
+                                     Tuesday
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.wednesday" ng-init="0" ng-true-value="1" >
+                                   <span>
+                                     Wednesday
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.thursday" ng-init="0" ng-true-value="1"  >
+                                   <span>
+                                     Thursday
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.friday" ng-init="0" ng-true-value="1"  >
+                                   <span>
+                                     Friday
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                  <input type="checkbox" ng-model="myForm.satureday" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     Saturday
+                                   </span>
+                                 </label>
+                               </dd>
+                             </div>
+                             <br>
+                             <div class="row">
+                               <div class="col-md-6">
+								 <p>
+                                   Select Date From
+                                 </p>
+                                 <div class="input-group ui-datepicker" data-ng-controller="DatepickerDemoCtrl">
+                                   <input type="text" 
+                                   class="form-control"
+                                   datepicker-popup="{{format}}"
+                                   ng-model="myForm.dt3"
+                                   is-open="opened"
+                                   min="minDate"
+                                   max="'2015-06-22'"
+                                   datepicker-options="dateOptions" 
+                                   date-disabled="disabled(date, mode)"
+                                   ng-required="true" 
+                                   close-text="Close">
+                                   <span class="input-group-addon">
+                                     <i class="fa fa-calendar">
+                                     </i>
+                                   </span>
+                                 </div>
+                               </div>
+                               <div class="col-md-6">
+                                 <p>
+                                   Select Date To
+                                 </p>
+                                 <div class="input-group ui-datepicker" data-ng-controller="DatepickerDemoCtrl">
+                                   <input type="text" 
+                                   class="form-control"
+                                   datepicker-popup="{{format}}"
+                                   ng-model="myForm.dt4"
+                                   is-open="opened"
+                                   min="minDate"
+                                   max="'2015-06-22'"
+                                   datepicker-options="dateOptions" 
+                                   date-disabled="disabled(date, mode)"
+                                   ng-required="true" 
+                                   close-text="Close">
+                                   <span class="input-group-addon">
+                                     <i class="fa fa-calendar">
+                                     </i>
+                                   </span>
+                                 </div>
+                               </div>
+                               
+                             </div>
+                             
+                           </tab>
+                           <tab heading="Monthly">
+                             <div class="row">
+								
+							 
+                               <div class="col-md-12">
+								<dd>
+                                 <label class="ui-checkbox">
+                                  <input type="checkbox" ng-model="myForm.m1" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     01
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                  <input type="checkbox" ng-model="myForm.m2"  ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     02
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                  <input type="checkbox" ng-model="myForm.m3" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     03
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                  <input type="checkbox" ng-model="myForm.m4" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                    04
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m5" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     05
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m6" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     06
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m7" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     07
+                                   </span>
+                                 </label><br>
+								 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m8" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     08
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m9"ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     09
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m10" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     10
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                  <input type="checkbox" ng-model="myForm.m11" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     11
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m12" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     12
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m13" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     13
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                  <input type="checkbox" ng-model="myForm.m14" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     14
+                                   </span>
+                                 </label><br>
+								 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m15" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     15
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m16" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     16
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m17" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     17
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m18" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     18
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m19" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     19
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m20" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     20
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m21" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     21
+                                   </span>
+                                 </label><br>
+								 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m22" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     22
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m23" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     23
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m24" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     24
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m25" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     25
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m26"  ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     26
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m27" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     27
+                                   </span>
+                                 </label>
+                                 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m28" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     28
+                                   </span>
+                                 </label><br>
+								 <label class="ui-checkbox">
+                                    <input type="checkbox" ng-model="myForm.m29" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     29
+                                   </span>
+                                 </label>
+								 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m30" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     30
+                                   </span>
+                                 </label>
+								 <label class="ui-checkbox">
+                                   <input type="checkbox" ng-model="myForm.m31" ng-init="0" ng-true-value="1"   >
+                                   <span>
+                                     31
+                                   </span>
+                                 </label>
+                               </dd>
+							   
+							   
+							   
+							   
+							   
+							   
+							   
+
+							   
+							   </div>
+                               <div class="col-md-6">
+                                 <p>
+                                   Select Date From
+                                 </p>
+                                 <div class="input-group ui-datepicker" data-ng-controller="DatepickerDemoCtrl">
+                                   <input type="text" 
+                                   class="form-control"
+                                   datepicker-popup="{{format}}"
+                                   ng-model="myForm.dt5"
+                                   is-open="opened"
+                                   min="minDate"
+                                   max="'2015-06-22'"
+                                   datepicker-options="dateOptions" 
+                                   date-disabled="disabled(date, mode)"
+                                   ng-required="true" 
+                                   close-text="Close">
+                                   <span class="input-group-addon">
+                                     <i class="fa fa-calendar">
+                                     </i>
+                                   </span>
+                                 </div>
+                               </div>
+                               <div class="col-md-6">
+                                 <p>
+                                   Select Date To
+                                 </p>
+                                 <div class="input-group ui-datepicker" data-ng-controller="DatepickerDemoCtrl">
+                                   <input type="text" 
+                                   class="form-control"
+                                   datepicker-popup="{{format}}"
+                                   ng-model="myForm.dt6"
+                                   is-open="opened"
+                                   min="minDate"
+                                   max="'2015-06-22'"
+                                   datepicker-options="dateOptions" 
+                                   date-disabled="disabled(date, mode)"
+                                   ng-required="true" 
+                                   close-text="Close">
+                                   <span class="input-group-addon">
+                                     <i class="fa fa-calendar">
+                                     </i>
+                                   </span>
+                                 </div>
+                               </div>
+                               
+                             </div>
+                           </tab>
+                         </tabset>
+                       </div>
+                     </div>
+                   </div>
+                   <!-- end mini box -->
+                   
+                   
+                 </div>
+                 
+               </div>
+               <!-- Repeat panel -->
+			   
+			   
+			   <!-- Form End panel -->
+               <div class="panel">
+                	<div class="panel-body">
+						
+						    <div style="text-align:center">
+                                <button class="btn btn-info btn-circle" type="button">
+                                      <i tooltip-placement="top" tooltip="Preview Schedule" tooltip-append-to-body="true"  class="fa fa-eye fa-2x">
+                                      </i>
+                                </button>
+								<button class="btn btn-success btn-circle" type="submit" ng-click="submit()">
+                                      <i tooltip-placement="top" tooltip="Submit" tooltip-append-to-body="true"  class="fa fa-check fa-2x">
+                                      </i>
+                                </button>
+								
+                            </div>
+				
+						
+					</div>
+               </div>
+               <!-- Form End panel -->
+			   
+			   
+			   
+			   
+              </form>
+              
+              </div>
+          </div>
+          
+          
+          

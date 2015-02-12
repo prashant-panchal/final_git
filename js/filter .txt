@@ -1,0 +1,29 @@
+function Doc_filter($scope){
+					
+					$scope.areaInclude= [];
+					
+					$scope.checked = function($rootScope.area){
+						
+						var i = $.inArray($rootScope.cards.area, $scope.areaInclude);
+						if(i > -1)
+						{
+							$scope.areaInclude.splice(i,1);
+						}
+						else
+						{
+							$scope.areaInclude.push($rootScope.cards.area)
+						}
+					}
+					
+					
+						$scope.areaFilter = function($rootScope.cards) {
+							if ($scope.areaInclude.length > 0) {
+								if ($.inArray($rootScope.cards, $scope.areaInclude) < 0)
+									return;
+							}
+							
+							return $rootScope.cards;
+						}
+					
+				};
+				
